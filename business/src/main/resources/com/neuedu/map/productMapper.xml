@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//dao.impl.jdbc.mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="entity.Product">
+
+    <select id="findAll" resultType="entity.Product" >
+        select   *    from    product
+    </select>
+    <!--添加-->
+    <insert id="addProduct" parameterType="entity.Product" statementType="PREPARED">
+        insert  into  product(name,detail,price,image,stock)  values(#{name},#{detail},#{price},#{image},#{stock})
+    </insert>
+    <!--删除-->
+    <delete id="deleteProduct">
+        delete from product where id = #{id}
+    </delete>
+    <!--更新-->
+    <update id="updateProduct" parameterType="entity.Product" statementType="PREPARED">
+        update product set name = #{name},detail = #{detail},price = #{price},image = #{image},stock = #{stock} where id = #{id}
+    </update>
+    <!--分页查询-->
+    <select id="findTotalCount" resultType="java.lang.Integer">
+        select count(id) from product
+    </select>
+    <select id="findProductByPage" parameterType="java.util.Map" resultType="entity.Product">
+        select * from product limit #{offSet},#{pageSize}
+    </select>
+
+    <select id="findProductById" resultType="entity.Product">
+        select *  from  product  where id = #{id}
+    </select>
+
+</mapper>

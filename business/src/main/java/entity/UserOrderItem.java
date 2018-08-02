@@ -4,17 +4,17 @@ import java.io.Serializable;
 
 public class UserOrderItem implements Serializable {
 
-	private int id; // ������ϸID
-	private long order_no;// �Ͷ������һ��
-	private int user_id;// �û�id
-	private int product_id;// ��Ʒid
-	private String product_name;// ��Ʒ����
-	private String product_image;// ��ƷͼƬ
-	private double current_unit_price;// ���ɶ���ʱ�ļ۸�
-	private int quantity;// ��Ʒ����
-	private double total_price; // �ܼ�
-	private long create_time;// ����ʱ��
-	private long update_time;// ����ʱ��
+	private int id; // 订单明细ID
+	private long order_no;// 和订单编号一样
+	private int user_id;// 用户id
+	private int product_id;// 商品id
+	private String product_name;// 商品名字
+	private String product_image;// 商品图片
+	private double current_unit_price;// 生成订单时的价格
+	private int quantity;// 商品数量
+	private double total_price; // 总价
+	private long create_time;// 创建时间
+	private long update_time;// 更新时间
 
 	public UserOrderItem(int id, long order_no, int user_id, int product_id, String product_name, String product_image,
 			double current_unit_price, int quantity, double total_price, long create_time, long update_time) {
@@ -126,9 +126,18 @@ public class UserOrderItem implements Serializable {
 
 	@Override
 	public String toString() {
-		return "UserOrderItem [������ϸid��" + id + ", ������ţ�" + order_no + ", user_id=" + user_id + ", ��Ʒid��" + product_id
-				+ ", ��Ʒ���֣�" + product_name + ", ��ƷͼƬ" + product_image + ",���ɶ���ʱ�ļ۸�" + current_unit_price + ", ��Ʒ����"
-				+ quantity + ", ��Ʒ�ܼۣ�" + total_price + ", ����ʱ�䣺" + create_time + ", ����ʱ�䣺" + update_time + "]";
+		return "UserOrderItem{" +
+				"id=" + id +
+				", order_no=" + order_no +
+				", user_id=" + user_id +
+				", product_id=" + product_id +
+				", product_name='" + product_name + '\'' +
+				", product_image='" + product_image + '\'' +
+				", current_unit_price=" + current_unit_price +
+				", quantity=" + quantity +
+				", total_price=" + total_price +
+				", create_time=" + create_time +
+				", update_time=" + update_time +
+				'}';
 	}
-
 }

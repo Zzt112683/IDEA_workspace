@@ -21,7 +21,7 @@ public class DBUtils {
 	}
 	//��ȡ����
 	public static Connection getConnection() throws SQLException {
-		String url="jdbc:mysql://127.0.0.1:3306/bussiness";
+		String url="jdbc:mysql://127.0.0.1:3306/business";
 		String user="root";
 		String password="1234";
 		

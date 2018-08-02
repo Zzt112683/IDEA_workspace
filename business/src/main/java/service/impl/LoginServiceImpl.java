@@ -12,7 +12,7 @@ public class LoginServiceImpl implements LoginService {
 
 	public Account LoginLogic(String username, String password) {
 		
-		//���е�¼��ҵ���߼�����
+		//???е??????????????
 		LoginDao loginDao = new LoginDaoImpl();
 		return loginDao.LoginLogic(username, password);
 	}

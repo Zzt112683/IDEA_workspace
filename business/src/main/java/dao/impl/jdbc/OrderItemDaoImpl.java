@@ -24,17 +24,17 @@ public class OrderItemDaoImpl implements OrderItemDao{
 		UserOrderItem orderItem = orderItems.get(0);
 		
 		/*
-		 	private int id; // ������ϸID
-			private long order_no;// �Ͷ������һ��
-			private int user_id;// �û�id
-			private int product_id;// ��Ʒid
-			private String product_name;// ��Ʒ����
-			private String product_image;// ��ƷͼƬ
-			private double current_unit_price;// ���ɶ���ʱ�ļ۸�
-			private int quantity;// ��Ʒ����
-			private double total_price; // �ܼ�
-			private long create_time;// ����ʱ��
-			private long update_time;// ����ʱ��
+		 	private int id; // ???????ID
+			private long order_no;// ???????????
+			private int user_id;// ???id
+			private int product_id;// ???id
+			private String product_name;// ???????
+			private String product_image;// ?????
+			private double current_unit_price;// ????????????
+			private int quantity;// ???????
+			private double total_price; // ???
+			private long create_time;// ???????
+			private long update_time;// ???????
 		 * */
 		try {
 			conn = DBUtils.getConnection();

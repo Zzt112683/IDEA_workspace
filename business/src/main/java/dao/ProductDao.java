@@ -18,9 +18,9 @@ public interface ProductDao {
 	//����ID�鿴��Ʒ
 	Product findProductById(int id);
 	/*
-	 * ��ҳ��ȡ����
-	 * pageNo:��ȡ�ڼ�ҳ
-	 * pageSize:ÿҳ����������
+	 * 分页获取数据
+	 * pageNo:获取第几页
+	 * pageSize:每页多少条数据
 	 */
 	PageModel<Product> findProductByPage(int pageNo, int pageSize);
 	

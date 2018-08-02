@@ -6,7 +6,10 @@ import entity.UserOrderItem;
 
 public interface OrderItemDao {
 
-	// �Ѷ�����ϸ��������ϸ��Ӧһ������Ʒ��Ӧ���Ǽ��ϣ����붩����ϸ������
+	/**
+	 * �Ѷ�����ϸ��������ϸ��Ӧһ������Ʒ��Ӧ���Ǽ��ϣ����붩����ϸ������
+	 */
+
 	boolean addOrderItem(List<UserOrderItem> orderItem);
 
 	List<UserOrderItem> findOrderItem();

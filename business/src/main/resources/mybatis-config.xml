@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//dao.impl.jdbc.mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <properties resource="jdbc.properties"></properties>
+    <!--查看日志-->
+    <settings>
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
+
+    <!--配置多个数据源-->
+    <environments default="development">
+        <environment id="development">
+            <!--使用事务管理器类型，JDBC中的链接对象去提交回滚-->
+            <transactionManager type="JDBC"/>
+            <!--配置数据源，POOLED是mybatis提供的连接池，一般般，支持第三方连接池-->
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <mapper resource="com/neuedu/map/userMapper.xml"/>
+        <mapper resource="com/neuedu/map/productMapper.xml"/>
+        <mapper resource="com/neuedu/map/cartMapper.xml"/>
+        <mapper resource="com/neuedu/map/OrderMapper.xml"/>
+        <mapper resource="com/neuedu/map/OrderItemMapper.xml"/>
+    </mappers>
+</configuration>

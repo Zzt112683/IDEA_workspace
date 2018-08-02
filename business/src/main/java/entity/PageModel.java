@@ -15,7 +15,7 @@ public class PageModel<T> implements Serializable{
 	private static final long serialVersionUID = -3036999816028876933L;
 	//ÿһҳ���ݾۺ�
 	private List<T> data;
-	//�ܹ��ж���ҳ
+	//总页数
 	private int totalPage;
 	//��ǰҳ��
 	private int currentPage;

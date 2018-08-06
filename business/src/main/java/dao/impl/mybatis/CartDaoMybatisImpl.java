@@ -1,4 +1,4 @@
-package dao.impl.jdbc.mybatis;
+package dao.impl.mybatis;
 
 import dao.CartDao;
 import entity.Cart;

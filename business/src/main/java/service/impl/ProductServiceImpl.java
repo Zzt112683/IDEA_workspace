@@ -4,7 +4,7 @@ import java.util.List;
 
 import dao.ProductDao;
 
-import dao.impl.jdbc.mybatis.ProductDaoMybatisImpl;
+import dao.impl.mybatis.ProductDaoMybatisImpl;
 import entity.PageModel;
 import entity.Product;
 import service.ProductService;

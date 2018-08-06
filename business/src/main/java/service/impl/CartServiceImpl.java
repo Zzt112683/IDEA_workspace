@@ -10,60 +10,64 @@ import service.CartService;
 
 public class CartServiceImpl implements CartService {
 
-	CartDao cd = new CartDaoImpl();
+	CartDao cartDao;
+
+	public void setCartDao(CartDao cartDao) {
+		this.cartDao = cartDao;
+	}
 
 	@Override
 	public boolean addCart(Cart cart) {
 
-		return cd.addCart(cart);
+		return cartDao.addCart(cart);
 	}
 
 	@Override
 	public List<Cart> findCart() {
 
-		return cd.findCart();
+		return cartDao.findCart();
 	}
 
 	@Override
 	public boolean updateCart(Cart cart) {
 
-		return cd.updateCart(cart);
+		return cartDao.updateCart(cart);
 	}
 
 	@Override
 	public boolean deleteCart(int id) {
 
-		return cd.deleteCart(id);
+		return cartDao.deleteCart(id);
 	}
 
 	@Override
 	public int getOrderId() {
 
-		return cd.getOrderId();
+		return cartDao.getOrderId();
 	}
 	
 	@Override
 	public boolean updateCart(int id, int num) {
 		// TODO Auto-generated method stub
-		return cd.updateCart(id,num);
+		return cartDao.updateCart(id,num);
 	}
 
 	@Override
 	public Cart getCartById(int id) {
 
-		return cd.getCartById(id);
+		return cartDao.getCartById(id);
 	}
 
 	@Override
 	public Product findProductById(int id) {
 		// TODO Auto-generated method stub
-		return cd.findProductById(id);
+		return cartDao.findProductById(id);
 	}
 
 	@Override
 	public Product findProductById_upd(int id) {
 		// TODO Auto-generated method stub
-		return cd.findProductById_upd(id);
+		return cartDao.findProductById_upd(id);
 	}
 
 

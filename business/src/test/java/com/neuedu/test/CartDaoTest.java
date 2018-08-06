@@ -1,7 +1,7 @@
 package com.neuedu.test;
 
 import dao.CartDao;
-import dao.impl.jdbc.mybatis.CartDaoMybatisImpl;
+import dao.impl.mybatis.CartDaoMybatisImpl;
 import entity.Cart;
 import entity.Product;
 import org.junit.After;

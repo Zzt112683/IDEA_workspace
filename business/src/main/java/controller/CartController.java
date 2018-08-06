@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -9,8 +10,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
 import entity.Cart;
 import entity.Product;
+import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.context.support.WebApplicationContextUtils;
 import service.CartService;
 import service.ProductService;
 import service.impl.CartServiceImpl;
@@ -19,14 +23,24 @@ import service.impl.ProductServiceImpl;
 @WebServlet(urlPatterns = {"/view/cart"})
 public class CartController extends HttpServlet{
 
-	CartService cs = new CartServiceImpl();
+	//ioc 控制反转 di 依赖注入
+	CartService cs;
 
-	
+
+
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		req.setCharacterEncoding("UTF-8");
 		resp.setContentType("text/html;charset=UTF-8");
+
+		//获取ioc容器
+		WebApplicationContext mWebApplicationContext
+				= WebApplicationContextUtils.getWebApplicationContext(this.getServletContext());
+		cs = (CartService) mWebApplicationContext.getBean("cartService");
+
+
+
 		String operation = req.getParameter("operation");
 		System.out.println(operation);
 		if(operation != null && !operation.equals("")) {
@@ -89,8 +103,15 @@ public class CartController extends HttpServlet{
 	public void findCart(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		List<Cart> carts = cs.findCart();
-		req.setAttribute("carts", carts);
-		req.getRequestDispatcher("showcart.jsp").forward(req, resp);
+		/*req.setAttribute("carts", carts);
+		req.getRequestDispatcher("showcart.jsp").forward(req, resp);*/
+		String callback = req.getParameter("callback");
+
+		Gson gson = new Gson();
+		String json = gson.toJson(carts);
+
+		PrintWriter printWriter = resp.getWriter();
+		printWriter.write(callback+"("+json+")");
 		
 	}
 

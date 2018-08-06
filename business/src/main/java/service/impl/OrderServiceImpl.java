@@ -9,10 +9,10 @@ import dao.OrderItemDao;
 import dao.ProductDao;
 
 
-import dao.impl.jdbc.mybatis.CartDaoMybatisImpl;
-import dao.impl.jdbc.mybatis.OrderDaoMybatisImpl;
-import dao.impl.jdbc.mybatis.OrderItemDaoMybatisImpl;
-import dao.impl.jdbc.mybatis.ProductDaoMybatisImpl;
+import dao.impl.mybatis.CartDaoMybatisImpl;
+import dao.impl.mybatis.OrderDaoMybatisImpl;
+import dao.impl.mybatis.OrderItemDaoMybatisImpl;
+import dao.impl.mybatis.ProductDaoMybatisImpl;
 import entity.Cart;
 import entity.Product;
 import entity.UserOrder;

@@ -1,7 +1,7 @@
 package com.neuedu.test;
 
 import dao.LoginDao;
-import dao.impl.jdbc.mybatis.LoginMybatisImpl;
+import dao.impl.mybatis.LoginMybatisImpl;
 import entity.Account;
 import org.junit.Test;
 

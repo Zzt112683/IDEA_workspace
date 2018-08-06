@@ -1,10 +1,7 @@
 package com.neuedu.test;
 
 import dao.OrderDao;
-import dao.impl.jdbc.OrderDaoImpl;
-import dao.impl.jdbc.mybatis.OrderDaoMybatisImpl;
-import entity.Cart;
-import entity.Product;
+import dao.impl.mybatis.OrderDaoMybatisImpl;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

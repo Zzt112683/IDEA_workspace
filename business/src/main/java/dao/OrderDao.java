@@ -14,4 +14,9 @@ public interface OrderDao {
 
 	// 生成订单ID
 	int getOrderId();
+
+	//根据订单编号查询订单
+	List<UserOrder> findOrderByOrderno(long orderno);
+
+
 }

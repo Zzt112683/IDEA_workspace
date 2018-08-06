@@ -27,7 +27,7 @@ public class ProductTest {
     }
     @Test
     public void testAddProduct(){
-        Product product = new Product("夏利","汽车",20000,"hot");
+        Product product = new Product("夏利","汽车",20000,"hot","哈哈哈");
         productService.addProduct(product);
         System.out.println(product);
     }
@@ -37,7 +37,7 @@ public class ProductTest {
     }
     @Test
     public void testUpdateProduct(){
-        Product product = new Product(18,"法拉利","跑车",8000000,"cool");
+        Product product = new Product(18,"法拉利","跑车",80000000,"cool","嘻嘻嘻");
         productService.updateProduct(product);
         System.out.println(product);
     }

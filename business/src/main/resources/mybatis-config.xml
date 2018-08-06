@@ -4,11 +4,18 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 
+
     <properties resource="jdbc.properties"></properties>
+
     <!--查看日志-->
     <settings>
         <setting name="logImpl" value="STDOUT_LOGGING"/>
     </settings>
+
+    <!--起别名-->
+    <!--<typeAliases>
+        <typeAlias type="com.neuedu.entity.Product" alias="product"></typeAlias>
+    </typeAliases>-->
 
     <!--配置多个数据源-->
     <environments default="development">

@@ -67,6 +67,14 @@ public class ProductDaoMybatisImpl implements ProductDao{
         return product;
     }
 
+    //更新库存
+    @Override
+    public boolean updateStock(Product product) {
+        session.selectList("entity.Product.updateStock",product);
+
+        return true;
+    }
+
     @Override
     public PageModel<Product> findProductByPage(int pageNo, int pageSize) {
         //查询总记录数-->计算总页数

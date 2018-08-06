@@ -14,6 +14,7 @@
 			<th>商品名称</th>
 			<th>商品描述</th>
 			<th>商品价格</th>
+			<th>商品规格</th>
 			<th>商品图片</th>
 			<th>商品库存</th>
 			<th>商品操作</th>
@@ -25,6 +26,7 @@
 			<th>${product.name}</th>
 			<th>${product.detail}</th>
 			<th>${product.price}</th>
+			<th>${product.rule}</th>
 			<th>${product.image}</th>
 			<th>${product.stock}</th>
 			<th>

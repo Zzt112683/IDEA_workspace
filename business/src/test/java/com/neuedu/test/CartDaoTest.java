@@ -22,9 +22,9 @@ public class CartDaoTest {
     public void testAddCart(){
 
         Cart cart = new Cart();
-        Product product = new Product(14,"特朗普","充气娃娃",22,"sad");
+        Product product = new Product(14,"特朗普","充气娃娃",22,"sad","拉阿拉蕾");
         cart.setProduct(product);
-        cart.setProductnum(10);
+        cart.setProductnum(20);
 
         cartDao.addCart(cart);
         System.out.println(cart);

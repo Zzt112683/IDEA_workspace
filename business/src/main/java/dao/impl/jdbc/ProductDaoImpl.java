@@ -26,7 +26,7 @@ public class ProductDaoImpl implements ProductDao{
 		try {
 			conn = DBUtils.getConnection();
 			st = conn.createStatement();
-			String sql = "insert into product(name,detail,price,image,stock) values('"+product.getName()+"','"+product.getDetail()+"',"+product.getPrice()+",'"+product.getImage()+"',"+product.getStock()+")";
+			String sql = "insert into product(name,detail,price,image,stock) values('"+product.getName()+"','"+product.getDetail()+"',"+product.getPrice()+",'"+product.getRule()+"','"+product.getImage()+"',"+product.getStock()+")";
 			System.out.println(sql);
 			st.execute(sql);
 			return true;
@@ -53,7 +53,7 @@ public class ProductDaoImpl implements ProductDao{
 		try {
 			conn = DBUtils.getConnection();
 			st = conn.createStatement();
-			String sql ="select id,name,detail,price,image,stock from product";
+			String sql ="select id,name,detail,price,rule,image,stock from product";
 			System.out.println(sql);
 			rs = st.executeQuery(sql);
 			while(rs.next()) {
@@ -61,10 +61,11 @@ public class ProductDaoImpl implements ProductDao{
 				String name = rs.getString("name");
 				String detail = rs.getString("detail");
 				double price = rs.getDouble("price");
+				String rule = rs.getString("rule");
 				String image = rs.getString("image");
 				int stock = rs.getInt("stock");
 				
-				Product product = new Product(id,name,detail,price,image,stock);
+				Product product = new Product(id,name,detail,price,rule,image,stock);
 				products.add(product);
 			}
 			
@@ -91,14 +92,15 @@ public class ProductDaoImpl implements ProductDao{
 		
 		try {
 			conn = DBUtils.getConnection();
-			String sql = "update product set name=?,Detail = ?,price =?,image = ?,stock = ? where id = ?";
+			String sql = "update product set name=?,detail = ?,price =?,rule = ?,image = ?,stock = ? where id = ?";
 			st = conn.prepareStatement(sql);
 			st.setString(1, product.getName());
 			st.setString(2, product.getDetail());
 			st.setDouble(3, product.getPrice());
-			st.setString(4, product.getImage());
-			st.setInt(5, product.getStock());
-			st.setInt(6, product.getId());
+			st.setString(4,product.getRule());
+			st.setString(5, product.getImage());
+			st.setInt(6, product.getStock());
+			st.setInt(7, product.getId());
 //			String sql = "update product set name = '"+product.getName()+"','"+product.getDetail()+"',"+product.getPrice()+",'"+product.getImage()+"',"+product.getStock()+" where id = "+ product.getId() +"";
 			
 			System.out.println(sql);
@@ -156,7 +158,7 @@ public class ProductDaoImpl implements ProductDao{
 		ResultSet rs = null;
 		try {
 			conn = DBUtils.getConnection();
-			String sql ="select id,name,detail,price,image,stock from product where id = ?";
+			String sql ="select id,name,detail,price,rule,image,stock from product where id = ?";
 			st = conn.prepareStatement(sql);
 			st.setInt(1, id);
 			System.out.println(sql);
@@ -168,12 +170,14 @@ public class ProductDaoImpl implements ProductDao{
 				String name = rs.getString("name");
 				String detail = rs.getString("detail");
 				double price = rs.getDouble("price");
+				String rule = rs.getString("rule");
 				String image = rs.getString("image");
 				int stock = rs.getInt("stock");
 				product.setId(id1);
 				product.setName(name);
 				product.setDetail(detail);
 				product.setPrice(price);
+				product.setRule(rule);
 				product.setImage(image);
 				product.setStock(stock);
 			}
@@ -193,6 +197,47 @@ public class ProductDaoImpl implements ProductDao{
 		}
 		return product;
 	}
+
+	//更新库存
+	@Override
+	public boolean updateStock(Product product) {
+
+		Connection conn = null;
+		PreparedStatement st = null;
+
+		try {
+			conn = DBUtils.getConnection();
+			String sql = "update product set name=?,detail = ?,price =?,rule = ?,image = ?,stock = ? where id = ?";
+			st = conn.prepareStatement(sql);
+			st.setString(1, product.getName());
+			st.setString(2, product.getDetail());
+			st.setDouble(3, product.getPrice());
+			st.setString(4,product.getRule());
+			st.setString(5, product.getImage());
+			st.setInt(6, product.getStock());
+			st.setInt(7, product.getId());
+//			String sql = "update product set name = '"+product.getName()+"','"+product.getDetail()+"',"+product.getPrice()+",'"+product.getImage()+"',"+product.getStock()+" where id = "+ product.getId() +"";
+
+			System.out.println(sql);
+			st.execute();
+
+			return true;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			try {
+				DBUtils.close(conn, st);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+
+
+		return false;
+	}
+
 	@Override
 	public PageModel<Product> findProductByPage(int pageNo, int pageSize) {
 		// TODO Auto-generated method stub
@@ -218,7 +263,7 @@ public class ProductDaoImpl implements ProductDao{
 			}
 			
 			
-			String sql ="select id,name,detail,price,image,stock from product limit ?,?";
+			String sql ="select id,name,detail,price,rule,image,stock from product limit ?,?";
 			st = conn.prepareStatement(sql);
 			st.setInt(1, (pageNo-1)*pageSize);
 			st.setInt(2, pageSize);
@@ -230,10 +275,11 @@ public class ProductDaoImpl implements ProductDao{
 				String name = rs.getString("name");
 				String detail = rs.getString("detail");
 				double price = rs.getDouble("price");
+				String rule = rs.getString("rule");
 				String image = rs.getString("image");
 				int stock = rs.getInt("stock");
 				
-				Product product = new Product(id,name,detail,price,image,stock);
+				Product product = new Product(id,name,detail,price,rule,image,stock);
 				list.add(product);
 			}
 			pageModel.setData(list);

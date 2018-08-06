@@ -69,6 +69,9 @@ public class CartDaoMybatisImpl implements CartDao{
 
     @Override
     public void clearCart() {
-
+        /*CartDao cartDao = session.getMapper(CartDao.class);
+        cartDao.clearCart();
+        session.commit();
+        session.close();*/
     }
 }

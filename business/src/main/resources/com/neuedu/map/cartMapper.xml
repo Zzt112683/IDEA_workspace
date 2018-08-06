@@ -21,12 +21,15 @@
             <result property="image" column="image"></result>
             <result property="stock" column="stock"></result>-->
         </association>
-
     </resultMap>
     <select id="findCart" resultMap="cart_product_resultmap">
-        select c.id id,c.productid productid,c.productnum productnum,p.name pname,p.detail detail,p.price price,p.image image,p.stock stock from cart c
+        select c.id id,c.productid productid,c.productnum productnum,p.name name,p.detail detail,p.price price,p.rule rule,p.image image,p.stock stock from cart c
         left join product p
         on c.productid = p.id
     </select>
+
+    <!--<delete id="clearCart">
+        delete from cart
+    </delete>-->
 
 </mapper>

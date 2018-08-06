@@ -15,6 +15,7 @@
 			<th>商品名称</th>
 			<th>商品描述</th>
 			<th>商品价格</th>
+			<th>商品规格</th>
 			<th>商品图片</th>
 			<th>商品数量</th>
 			
@@ -27,6 +28,7 @@
 			<th>${cart.product.name}</th>
 			<th>${cart.product.detail}</th>
 			<th>${cart.product.price}</th>
+			<th>${cart.product.image}</th>
 			<th>${cart.product.image}</th>
 			<th>${cart.productnum}</th>
 			

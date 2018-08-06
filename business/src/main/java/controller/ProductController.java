@@ -64,6 +64,7 @@ public class ProductController extends HttpServlet{
 		
 		String name = req.getParameter("pname");
 		String detail = req.getParameter("pdetail");
+		String rule = req.getParameter("rule");
 		String image = req.getParameter("pimage");
 		double price = 0.0;
 		int stock = 0;
@@ -74,6 +75,7 @@ public class ProductController extends HttpServlet{
 			product.setName(name);
 			product.setDetail(detail);
 			product.setPrice(price);
+			product.setRule(rule);
 			product.setImage(image);
 			product.setStock(stock);
 			result = addProduct(product);
@@ -82,10 +84,10 @@ public class ProductController extends HttpServlet{
 			e.printStackTrace();
 		}
 		if(result) {
-			System.out.println("��Ʒ��ӳɹ�");
+			System.out.println("添加成功");
 			findProductByPage(req, resp);
 		}else {
-			System.out.println("��Ʒ���ʧ��");
+			System.out.println("添加失败");
 			
 		}
 		
@@ -139,6 +141,7 @@ public class ProductController extends HttpServlet{
 		
 		String name = req.getParameter("pname");
 		String detail = req.getParameter("pdetail");
+		String rule = req.getParameter("rule");
 		String image = req.getParameter("pimage");
 		double price = 0.0;
 		int stock = 0;
@@ -151,6 +154,7 @@ public class ProductController extends HttpServlet{
 			product.setName(name);
 			product.setDetail(detail);
 			product.setPrice(price);
+			product.setRule(rule);
 			product.setImage(image);
 			product.setStock(stock);
 			product.setId(id);
@@ -161,10 +165,10 @@ public class ProductController extends HttpServlet{
 			e.printStackTrace();
 		}
 		if(result) {
-			System.out.println("��Ʒ�޸ĳɹ�");
+			System.out.println("更新成功");
 			findProductByPage(req, resp);
 		}else {
-			System.out.println("��Ʒ�޸�ʧ��");
+			System.out.println("更新失败");
 		}
 		
 		
@@ -184,7 +188,7 @@ public class ProductController extends HttpServlet{
 		if(result) {
 			findProductByPage(req, resp);
 		}else {
-			System.out.println("ɾ��ʧ��");
+			System.out.println("删除失败");
 		}
 		return result;
 		

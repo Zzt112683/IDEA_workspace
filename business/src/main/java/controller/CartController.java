@@ -74,15 +74,14 @@ public class CartController extends HttpServlet{
 		}
 		if(result) {
 			//��ӹ��ﳵ�ɹ�
-			System.out.println("��ӹ��ﳵ�ɹ�");
+			System.out.println("添加成功");
 			findCart(req, resp);
 		}else {
-			System.out.println("��ӹ��ﳵʧ��");
+			System.out.println("添加失败");
 		}
 	}
 	public boolean addCart(Cart cart) {
 
-		
 		return cs.addCart(cart);
 	}
 
@@ -93,11 +92,9 @@ public class CartController extends HttpServlet{
 		req.setAttribute("carts", carts);
 		req.getRequestDispatcher("showcart.jsp").forward(req, resp);
 		
-		
 	}
 
-	
-	
+
 	public void updateCart(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		Cart cart = new Cart();
 		Product product = new Product();
@@ -117,10 +114,10 @@ public class CartController extends HttpServlet{
 		}
 		if(result) {
 			//��ӹ��ﳵ�ɹ�
-			System.out.println("�޸Ĺ��ﳵ�ɹ�");
+			System.out.println("更新成功");
 			findCart(req, resp);
 		}else {
-			System.out.println("�޸Ĺ��ﳵʧ��");
+			System.out.println("更新失败");
 		}
 		
 		
@@ -137,16 +134,15 @@ public class CartController extends HttpServlet{
 		Integer id = Integer.parseInt(req.getParameter("id"));
 		result = cs.deleteCart(id);
 		if(result) {
-			System.out.println("ɾ���ɹ�");
+			System.out.println("删除成功");
 			findCart(req, resp);
 		}else {
-			System.out.println("ɾ��ʧ��");
+			System.out.println("删除失败");
 		}
 		return result;
 		
 	}
 
-	
 
 	public int getOrderId() {
 

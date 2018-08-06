@@ -24,6 +24,10 @@
 				<td><input type="text" name="price"/></td>
 			</tr>
 			<tr>
+				<td>商品规格</td>
+				<td><input type="text" name="rule"/></td>
+			</tr>
+			<tr>
 				<td>商品图片</td>
 				<td><input type="text" name="pimage"/></td>
 			</tr>

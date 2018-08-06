@@ -32,4 +32,14 @@ public class OrderDaoMybatisImpl implements OrderDao{
     public int getOrderId() {
         return 0;
     }
+
+    @Override
+    public List<UserOrder> findOrderByOrderno(long orderno) {
+        System.out.println(orderno);
+        OrderDao orderDao = session.getMapper(OrderDao.class);
+
+        List<UserOrder> userOrderlist = orderDao.findOrderByOrderno(orderno);
+        session.close();
+        return userOrderlist;
+    }
 }

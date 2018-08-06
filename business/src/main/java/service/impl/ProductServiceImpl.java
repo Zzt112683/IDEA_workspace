@@ -43,6 +43,11 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
+	public boolean updateStock(Product product) {
+		return pd.updateStock(product);
+	}
+
+	@Override
 	public PageModel<Product> findProductByPage(Integer pageNo, Integer pageSize) {
 		// TODO Auto-generated method stub
 		

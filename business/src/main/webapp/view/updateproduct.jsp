@@ -27,6 +27,10 @@
 				<td><input type="text" name="price" value="${product.price}"/></td>
 			</tr>
 			<tr>
+				<td>商品规格</td>
+				<td><input type="text" name="rule" value="${product.rule}"/></td>
+			</tr>
+			<tr>
 				<td>商品图片</td>
 				<td><input type="text" name="pimage" value="${product.image}"/></td>
 			</tr>

@@ -9,7 +9,7 @@
     </select>
     <!--添加-->
     <insert id="addProduct" parameterType="entity.Product" statementType="PREPARED">
-        insert  into  product(name,detail,price,image,stock)  values(#{name},#{detail},#{price},#{image},#{stock})
+        insert  into  product(name,detail,price,rule,image,stock)  values(#{name},#{detail},#{price},#{rule},#{image},#{stock})
     </insert>
     <!--删除-->
     <delete id="deleteProduct">
@@ -17,7 +17,7 @@
     </delete>
     <!--更新-->
     <update id="updateProduct" parameterType="entity.Product" statementType="PREPARED">
-        update product set name = #{name},detail = #{detail},price = #{price},image = #{image},stock = #{stock} where id = #{id}
+        update product set name = #{name},detail = #{detail},price = #{price},rule = #{rule},image = #{image},stock = #{stock} where id = #{id}
     </update>
     <!--分页查询-->
     <select id="findTotalCount" resultType="java.lang.Integer">
@@ -30,5 +30,19 @@
     <select id="findProductById" resultType="entity.Product">
         select *  from  product  where id = #{id}
     </select>
+
+    <update id="updateStock" parameterType="entity.Product">
+        update product
+        <set>
+            <if test="name != null">name=#{name},</if>
+            <if test="detail != null">detail=#{detail},</if>
+            <if test="price &gt; 0">price=#{price},</if>
+            <if test="rule =! null">rule=#{rule},</if>
+            <if test="image != null">image=#{image},</if>
+            <if test="stock &gt; 0">stock=#{stock},</if>
+        </set>
+        where id=#{id}
+    </update>
+
 
 </mapper>

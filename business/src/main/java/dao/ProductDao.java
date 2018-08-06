@@ -17,6 +17,9 @@ public interface ProductDao {
 	boolean deleteProduct(int id);
 	//����ID�鿴��Ʒ
 	Product findProductById(int id);
+
+	//更新库存
+	boolean updateStock(Product product);
 	/*
 	 * 分页获取数据
 	 * pageNo:获取第几页

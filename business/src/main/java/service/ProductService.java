@@ -22,7 +22,9 @@ public interface ProductService {
 
 	// ���ݣɣķ�����Ʒ
 	Product findProductById(int id);
-	
+
+	//更新库存
+	boolean updateStock(Product product);
 	
 	
 	//��ҳ��ȡ��Ʒ��Ϣ

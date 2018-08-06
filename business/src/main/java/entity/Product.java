@@ -10,37 +10,41 @@ public class Product implements Serializable {
 	private static final long serialVersionUID = 6420732982998980008L;
 	private int id;
 	private String name;
-	private String detail;
+	private String detail;//描述
 	private double price;
+	private String rule;//规格
 	private String image;
 	private int stock = 100;
 
-	public Product( String name, String detail, double price, String image) {
+	public Product( String name, String detail, double price,String rule, String image) {
 		super();
 		
 		this.name = name;
 		this.detail = detail;
 		this.price = price;
+		this.rule = rule;
 		this.image = image;
 
 	}
 
-	public Product(int id, String name, String detail, double price, String image) {
+	public Product(int id, String name, String detail, double price,String rule, String image) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.detail = detail;
 		this.price = price;
+		this.rule = rule;
 		this.image = image;
 
 	}
 	
-	public Product(int id, String name, String detail, double price, String image,int stock) {
+	public Product(int id, String name, String detail, double price,String rule, String image,int stock) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.detail = detail;
 		this.price = price;
+		this.rule = rule;
 		this.image = image;
 		this.stock = stock;
 	}
@@ -81,6 +85,14 @@ public class Product implements Serializable {
 		this.price = price;
 	}
 
+	public String getRule() {
+		return rule;
+	}
+
+	public void setRule(String rule) {
+		this.rule = rule;
+	}
+
 	public String getImage() {
 		return image;
 	}
@@ -99,8 +111,14 @@ public class Product implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Product [id=" + id + ", name=" + name + ", detail=" + detail + ", price=" + price + ", image=" + image
-				+ ", stock=" + stock + "]";
+		return "Product{" +
+				"id=" + id +
+				", name='" + name + '\'' +
+				", detail='" + detail + '\'' +
+				", price=" + price +
+				", rule='" + rule + '\'' +
+				", image='" + image + '\'' +
+				", stock=" + stock +
+				'}';
 	}
-
 }

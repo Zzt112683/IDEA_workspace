@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//com.neuedu.dao.impl.jdbc.mybatis.org//DTD Mapper 3.0//EN"
+        "http://com.neuedu.dao.impl.jdbc.mybatis.org/dtd/com.neuedu.dao.impl.jdbc.mybatis-3-mapper.dtd">
+<mapper namespace="com.neuedu.mapper.EmpMapper">
+    <select id="listEmp" resultType="com.neuedu.entity.Emp">
+        select * from e_emp;
+    </select>
+    <insert id="saveEmp">
+       insert into e_emp values (null,#{emp.name},#{emp.salary},#{emp.job})
+    </insert>
+    <delete id="deleteEmpById">
+        delete from e_emp where id = #{id}
+    </delete>
+    <select id="getEmpById" resultType="com.neuedu.entity.Emp">
+        select * from e_emp where id = #{id}
+    </select>
+    <update id="updateEmp">
+        update e_emp set name = #{emp.name},salary = #{emp.salary},job = #{emp.job} where id = #{emp.id}
+    </update>
+</mapper>

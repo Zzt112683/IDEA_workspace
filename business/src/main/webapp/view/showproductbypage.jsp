@@ -43,8 +43,6 @@
 			<c:when test="${pageModel.currentPage==current}">
 				<a style = "color: red" href="product?operation=6&pageNo=${current}&pageSize=3">${current}</a>
 			</c:when>
-		</c:choose>
-		<c:choose>
 			<c:when test="${pageModel.currentPage!=current}">
 				<a href="product?operation=6&pageNo=${current}&pageSize=3">${current}</a>
 			</c:when>

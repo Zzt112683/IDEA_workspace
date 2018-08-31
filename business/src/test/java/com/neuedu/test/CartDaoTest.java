@@ -1,28 +1,33 @@
 package com.neuedu.test;
 
-import dao.CartDao;
-import dao.impl.mybatis.CartDaoMybatisImpl;
-import entity.Cart;
-import entity.Product;
+import com.neuedu.dao.CartDao;
+import com.neuedu.dao.impl.mybatis.CartDaoMybatisImpl;
+import com.neuedu.entity.Cart;
+import com.neuedu.entity.Product;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.List;
 
 public class CartDaoTest {
 
-    CartDao cartDao = null;
+
+    CartDao cartDao;
     @Before
     public void before(){
-        cartDao = new CartDaoMybatisImpl();
+        /*cartDao = new CartDaoMybatisImpl();*/
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring-config.xml");
+        cartDao = (CartDao)applicationContext.getBean("cartDao");
     }
 
     @Test
     public void testAddCart(){
 
         Cart cart = new Cart();
-        Product product = new Product(14,"特朗普","充气娃娃",22,"sad","拉阿拉蕾");
+        Product product = new Product(14,"特朗普","充气娃娃",222,"sad","拉阿拉蕾");
         cart.setProduct(product);
         cart.setProductnum(20);
 

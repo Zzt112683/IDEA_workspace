@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper
-        PUBLIC "-//dao.impl.jdbc.mybatis.org//DTD Mapper 3.0//EN"
+        PUBLIC "-//com.neuedu.dao.impl.jdbc.mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="dao.OrderDao">
+<mapper namespace="com.neuedu.dao.OrderDao">
 
-    <insert id="createOrder" parameterType="entity.UserOrder" keyProperty="id" keyColumn="id" useGeneratedKeys="true">
+    <insert id="createOrder" parameterType="com.neuedu.entity.UserOrder" keyProperty="id" keyColumn="id" useGeneratedKeys="true">
 
         insert into userorder(order_no,user_id,shopping_id,payment,payment_type,postage,status,create_time)
 					 values(#{order_no},#{user_id},#{shopping_id},#{payment},#{payment_type},#{postage},#{status},now())
 
     </insert>
 
-    <resultMap id="orderitems_resultmap" type="entity.UserOrder" autoMapping="true">
+    <resultMap id="orderitems_resultmap" type="com.neuedu.entity.UserOrder" autoMapping="true">
         <result column="order_no" property="order_no"></result>
-        <collection property="orderItemList" javaType="ArrayList" ofType="entity.UserOrderItem" column="order_no" autoMapping="true">
+        <collection property="orderItemList" javaType="ArrayList" ofType="com.neuedu.entity.UserOrderItem" column="order_no" autoMapping="true">
             <result column="order_no" property="order_no"></result>
             <result column="product_id" property="product_id"></result>
         </collection>

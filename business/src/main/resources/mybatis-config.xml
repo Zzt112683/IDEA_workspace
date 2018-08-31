@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE configuration
-        PUBLIC "-//dao.impl.jdbc.mybatis.org//DTD Config 3.0//EN"
+        PUBLIC "-//com.neuedu.dao.impl.jdbc.mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 
@@ -14,15 +14,15 @@
 
     <!--起别名-->
     <!--<typeAliases>
-        <typeAlias type="com.neuedu.entity.Product" alias="product"></typeAlias>
+        <typeAlias type="com.neuedu.com.neuedu.entity.Product" alias="product"></typeAlias>
     </typeAliases>-->
 
     <!--配置多个数据源-->
-    <environments default="development">
+    <!--<environments default="development">
         <environment id="development">
-            <!--使用事务管理器类型，JDBC中的链接对象去提交回滚-->
+            &lt;!&ndash;使用事务管理器类型，JDBC中的链接对象去提交回滚&ndash;&gt;
             <transactionManager type="JDBC"/>
-            <!--配置数据源，POOLED是mybatis提供的连接池，一般般，支持第三方连接池-->
+            &lt;!&ndash;配置数据源，POOLED是mybatis提供的连接池，一般般，支持第三方连接池&ndash;&gt;
             <dataSource type="POOLED">
                 <property name="driver" value="${jdbc.driver}"/>
                 <property name="url" value="${jdbc.url}"/>
@@ -30,12 +30,12 @@
                 <property name="password" value="${jdbc.password}"/>
             </dataSource>
         </environment>
-    </environments>
-    <mappers>
+    </environments>-->
+    <!--<mappers>
         <mapper resource="com/neuedu/map/userMapper.xml"/>
         <mapper resource="com/neuedu/map/productMapper.xml"/>
         <mapper resource="com/neuedu/map/cartMapper.xml"/>
         <mapper resource="com/neuedu/map/OrderMapper.xml"/>
         <mapper resource="com/neuedu/map/OrderItemMapper.xml"/>
-    </mappers>
+    </mappers>-->
 </configuration>

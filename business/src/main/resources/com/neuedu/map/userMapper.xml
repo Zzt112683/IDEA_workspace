@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper
-        PUBLIC "-//dao.impl.jdbc.mybatis.org//DTD Mapper 3.0//EN"
+        PUBLIC "-//com.neuedu.dao.impl.jdbc.mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.neuedu.entity.Account">
 
-    <select id="findByUsernameAndPassword" resultType="entity.Account" parameterType="map">
+    <select id="findByUsernameAndPassword" resultType="com.neuedu.entity.Account" parameterType="map">
         select * from user where username=#{username} and password=#{password}
     </select>
 

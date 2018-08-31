@@ -1,8 +1,8 @@
 package com.neuedu.test;
 
-import dao.LoginDao;
-import dao.impl.mybatis.LoginMybatisImpl;
-import entity.Account;
+import com.neuedu.dao.LoginDao;
+import com.neuedu.dao.impl.mybatis.LoginMybatisImpl;
+import com.neuedu.entity.Account;
 import org.junit.Test;
 
 public class UserDaoTest {

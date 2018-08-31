@@ -1,20 +1,28 @@
 package com.neuedu.test;
 
-import entity.PageModel;
-import entity.Product;
+import com.neuedu.entity.PageModel;
+import com.neuedu.entity.Product;
+import com.neuedu.service.ProductService;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import service.impl.ProductServiceImpl;
+import com.neuedu.service.impl.ProductServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
-
+@Component
 public class ProductTest {
 
-    ProductServiceImpl productService = null;
+   ProductService productService = null;
     @Before
     public void before(){
-        productService = new ProductServiceImpl();
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring-config.xml");
+        //step 2 从容器中获取bean
+         productService =  (ProductService)applicationContext.getBean("productServiceImpl");
+
     }
 
     @Test
@@ -27,7 +35,9 @@ public class ProductTest {
     }
     @Test
     public void testAddProduct(){
-        Product product = new Product("夏利","汽车",20000,"hot","哈哈哈");
+
+
+        Product product = new Product("夏天","汽车",20000,"hot","哈哈哈");
         productService.addProduct(product);
         System.out.println(product);
     }
